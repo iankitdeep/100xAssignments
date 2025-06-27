@@ -3,7 +3,7 @@
   and return a list of objects where each object is unique category-wise and has total price spent as its value.
   transactions is an array where each
   Transaction - an object like 
-        {
+  {
 		id: 1,
 		timestamp: 1656076800000,
 		price: 10,
@@ -14,7 +14,22 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const uniqueProducts = {};
+
+  for (const transaction of transactions) {
+    const { category, price } = transaction;
+
+    if (category in uniqueProducts) {
+      uniqueProducts[category] += price;
+    } else {
+      uniqueProducts[category] = {
+        category: category,
+        price: price,
+      };
+    }
+  }
+
+  return Object.values(uniqueProducts);
 }
 
 module.exports = calculateTotalSpentByCategory;
