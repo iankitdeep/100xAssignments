@@ -1,5 +1,5 @@
 // You have to create a middleware for rate limiting a users request based on their username passed in the header
-
+"use strict";
 const express = require("express");
 const app = express();
 
@@ -41,4 +41,4 @@ app.post("/user", function (req, res) {
 });
 
 module.exports = app;
-// Done
+// now its done
